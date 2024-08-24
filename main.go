@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
+	"github.com/gabrielecuccu/go-sorting/lib"
 )
 
-func sort(algorithm SortAlgorithm, numbers *[]int) {
+func sort(algorithm lib.SortAlgorithm, numbers *[]int) {
 	fmt.Println("******************************************")
-	fmt.Printf("%s of %v\n", algorithm.name(), *numbers)
+	fmt.Printf("%s of %v\n", algorithm.Name(), *numbers)
 	counter := 0
-	algorithm.sort(numbers, &counter)
+	algorithm.Sort(numbers, &counter)
 	fmt.Println("Result: ", *numbers)
 	fmt.Printf("In %d steps\n", counter)
 	fmt.Println("******************************************")
@@ -19,6 +20,6 @@ func unsortedArray() *[]int {
 }
 
 func main() {
-	sort(NewBubbleSort(), unsortedArray())
-	sort(NewSelectionSort(), unsortedArray())
+	sort(lib.NewBubbleSort(), unsortedArray())
+	sort(lib.NewSelectionSort(), unsortedArray())
 }

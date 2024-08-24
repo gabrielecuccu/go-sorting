@@ -1,4 +1,4 @@
-package main
+package lib
 
 type BubbleSort struct {
 }
@@ -7,7 +7,7 @@ func NewBubbleSort() *BubbleSort {
 	return &BubbleSort{}
 }
 
-func (b BubbleSort) sort(numbers *[]int, counter *int) {
+func (b BubbleSort) Sort(numbers *[]int, counter *int) {
 	swapped := false
 	for k, _ := range *numbers {
 		*counter++
@@ -25,10 +25,10 @@ func (b BubbleSort) sort(numbers *[]int, counter *int) {
 		}
 	}
 	if swapped == true {
-		b.sort(numbers, counter)
+		b.Sort(numbers, counter)
 	}
 }
 
-func (b BubbleSort) name() string {
+func (b BubbleSort) Name() string {
 	return "Bubble Sort"
 }

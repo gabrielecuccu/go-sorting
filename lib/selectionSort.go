@@ -1,4 +1,4 @@
-package main
+package lib
 
 type SelectionSort struct {
 }
@@ -7,7 +7,7 @@ func NewSelectionSort() *SelectionSort {
 	return &SelectionSort{}
 }
 
-func (b SelectionSort) sort(numbers *[]int, counter *int) {
+func (b SelectionSort) Sort(numbers *[]int, counter *int) {
 	for curSortedKey, curSortedVal := range *numbers {
 		var minValKey int
 		var minValVal = curSortedVal
@@ -25,6 +25,6 @@ func (b SelectionSort) sort(numbers *[]int, counter *int) {
 	}
 }
 
-func (b SelectionSort) name() string {
+func (b SelectionSort) Name() string {
 	return "Selection Sort"
 }

@@ -1,6 +1,6 @@
-package main
+package lib
 
 type SortAlgorithm interface {
-	sort(numbers *[]int, counter *int)
-	name() string
+	Sort(numbers *[]int, counter *int)
+	Name() string
 }
