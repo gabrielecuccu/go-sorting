@@ -27,26 +27,26 @@ func bubbleSort(numbers *[]int, counter *int) {
 }
 
 func selectionSort(numbers *[]int, counter *int) {
-    for curSortedKey, curSortedVal := range *numbers {
-        var minValKey int
-        var minValVal = curSortedVal
-        for curUnsortedKey, curUnsortedVal := range (*numbers)[curSortedKey:] {
-            *counter++
-            if curUnsortedVal < minValVal {
-                minValKey = curUnsortedKey
-                minValVal = curUnsortedVal
-            }
-        }
-        if minValKey != -1 {
-            (*numbers)[curSortedKey] = minValVal
-            (*numbers)[minValKey+curSortedKey] = curSortedVal
-        }
-    }
+	for curSortedKey, curSortedVal := range *numbers {
+		var minValKey int
+		var minValVal = curSortedVal
+		for curUnsortedKey, curUnsortedVal := range (*numbers)[curSortedKey:] {
+			*counter++
+			if curUnsortedVal < minValVal {
+				minValKey = curUnsortedKey
+				minValVal = curUnsortedVal
+			}
+		}
+		if minValKey != -1 {
+			(*numbers)[curSortedKey] = minValVal
+			(*numbers)[minValKey+curSortedKey] = curSortedVal
+		}
+	}
 }
 
 func execBubbleSort() {
-    fmt.Println("******************************************")
-    fmt.Println("Bubble Sort of 9, 8, 7, 6, 5, 4, 3, 2, 1")
+	fmt.Println("******************************************")
+	fmt.Println("Bubble Sort of 9, 8, 7, 6, 5, 4, 3, 2, 1")
 	numbers := []int{9, 8, 7, 6, 5, 4, 3, 2, 1}
 	counter := 0
 	bubbleSort(&numbers, &counter)
@@ -56,8 +56,8 @@ func execBubbleSort() {
 }
 
 func execSelectionSort() {
-    fmt.Println("******************************************")
-    fmt.Println("Bubble Sort of 9, 8, 7, 6, 5, 4, 3, 2, 1")
+	fmt.Println("******************************************")
+	fmt.Println("Bubble Sort of 9, 8, 7, 6, 5, 4, 3, 2, 1")
 	numbers := []int{9, 8, 7, 6, 5, 4, 3, 2, 1}
 	counter := 0
 	selectionSort(&numbers, &counter)
