@@ -1,18 +1,22 @@
 package lib
 
 type SelectionSort struct {
+	steps *int
 }
 
 func NewSelectionSort() *SelectionSort {
-	return &SelectionSort{}
+	steps := 0
+	return &SelectionSort{
+		steps: &steps,
+	}
 }
 
-func (b SelectionSort) Sort(numbers *[]int, counter *int) {
+func (s SelectionSort) Sort(numbers *[]int) {
 	for curSortedKey, curSortedVal := range *numbers {
 		var minValKey int
 		var minValVal = curSortedVal
 		for curUnsortedKey, curUnsortedVal := range (*numbers)[curSortedKey:] {
-			*counter++
+			*s.steps++
 			if curUnsortedVal < minValVal {
 				minValKey = curUnsortedKey
 				minValVal = curUnsortedVal
@@ -25,6 +29,10 @@ func (b SelectionSort) Sort(numbers *[]int, counter *int) {
 	}
 }
 
-func (b SelectionSort) Name() string {
+func (s SelectionSort) Name() string {
 	return "Selection Sort"
+}
+
+func (s SelectionSort) Steps() int {
+	return *s.steps
 }

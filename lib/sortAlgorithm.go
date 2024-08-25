@@ -1,6 +1,7 @@
 package lib
 
 type SortAlgorithm interface {
-	Sort(numbers *[]int, counter *int)
+	Sort(numbers *[]int)
 	Name() string
+	Steps() int
 }

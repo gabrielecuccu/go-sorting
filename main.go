@@ -8,10 +8,9 @@ import (
 func sort(algorithm lib.SortAlgorithm, numbers *[]int) {
 	fmt.Println("******************************************")
 	fmt.Printf("%s of %v\n", algorithm.Name(), *numbers)
-	counter := 0
-	algorithm.Sort(numbers, &counter)
+	algorithm.Sort(numbers)
 	fmt.Println("Result: ", *numbers)
-	fmt.Printf("In %d steps\n", counter)
+	fmt.Printf("In %d steps\n", algorithm.Steps())
 	fmt.Println("******************************************")
 }
 

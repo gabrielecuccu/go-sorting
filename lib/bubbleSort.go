@@ -1,16 +1,20 @@
 package lib
 
 type BubbleSort struct {
+	steps *int
 }
 
 func NewBubbleSort() *BubbleSort {
-	return &BubbleSort{}
+	steps := 0
+	return &BubbleSort{
+		steps: &steps,
+	}
 }
 
-func (b BubbleSort) Sort(numbers *[]int, counter *int) {
+func (b BubbleSort) Sort(numbers *[]int) {
 	swapped := false
 	for k, _ := range *numbers {
-		*counter++
+		*b.steps++
 		if k == len(*numbers)-1 {
 			break
 		}
@@ -25,10 +29,14 @@ func (b BubbleSort) Sort(numbers *[]int, counter *int) {
 		}
 	}
 	if swapped == true {
-		b.Sort(numbers, counter)
+		b.Sort(numbers)
 	}
 }
 
 func (b BubbleSort) Name() string {
 	return "Bubble Sort"
+}
+
+func (b BubbleSort) Steps() int {
+	return *b.steps
 }

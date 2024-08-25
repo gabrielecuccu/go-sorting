@@ -1,17 +1,21 @@
 package lib
 
 type InsertionSort struct {
+	steps *int
 }
 
 func NewInsertionSort() *InsertionSort {
-	return &InsertionSort{}
+	steps := 0
+	return &InsertionSort{
+		steps: &steps,
+	}
 }
 
-func (b InsertionSort) Sort(numbers *[]int, counter *int) {
+func (i InsertionSort) Sort(numbers *[]int) {
 	for unsortedKey, _ := range (*numbers)[1:] {
 		unsortedKey = unsortedKey + 1
 		for sortedKey, _ := range (*numbers)[:unsortedKey] {
-			*counter++
+			*i.steps++
 			if (*numbers)[unsortedKey] < (*numbers)[sortedKey] {
 				move(numbers, unsortedKey, sortedKey)
 				break
@@ -20,8 +24,12 @@ func (b InsertionSort) Sort(numbers *[]int, counter *int) {
 	}
 }
 
-func (b InsertionSort) Name() string {
+func (i InsertionSort) Name() string {
 	return "Insertion Sort"
+}
+
+func (i InsertionSort) Steps() int {
+	return *i.steps
 }
 
 func move(a *[]int, from, to int) {
