@@ -12,6 +12,9 @@ func NewInsertionSort() *InsertionSort {
 }
 
 func (i InsertionSort) Sort(numbers *[]int) {
+	if len(*numbers) < 2 {
+		return
+	}
 	for unsortedKey, _ := range (*numbers)[1:] {
 		unsortedKey = unsortedKey + 1
 		for sortedKey, _ := range (*numbers)[:unsortedKey] {
