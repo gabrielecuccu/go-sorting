@@ -14,13 +14,17 @@ func sort(algorithm lib.SortAlgorithm, numbers *[]int) {
 	fmt.Println("******************************************")
 }
 
-func unsortedArray() *[]int {
-	return &[]int{9, 8, 7, 6, 5, 4, 3, 2, 1}
+func unsortedArray(size int) *[]int {
+	arr := make([]int, size)
+	for k, _ := range arr {
+		arr[k] = size - k
+	}
+	return &arr
 }
 
 func main() {
-	sort(lib.NewBubbleSort(), unsortedArray())
-	sort(lib.NewSelectionSort(), unsortedArray())
-	sort(lib.NewInsertionSort(), unsortedArray())
-	sort(lib.NewMergeSort(), unsortedArray())
+	sort(lib.NewBubbleSort(), unsortedArray(25))
+	sort(lib.NewSelectionSort(), unsortedArray(25))
+	sort(lib.NewInsertionSort(), unsortedArray(25))
+	sort(lib.NewMergeSort(), unsortedArray(25))
 }
