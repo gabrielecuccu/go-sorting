@@ -22,4 +22,5 @@ func main() {
 	sort(lib.NewBubbleSort(), unsortedArray())
 	sort(lib.NewSelectionSort(), unsortedArray())
 	sort(lib.NewInsertionSort(), unsortedArray())
+	sort(lib.NewMergeSort(), unsortedArray())
 }
